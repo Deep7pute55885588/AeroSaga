@@ -1,5 +1,6 @@
 
 import "./App.css";
+import GlobeView from "./GlobeView";
 
 const drones = [
   {
@@ -23,9 +24,7 @@ const drones = [
 ];
 
 function DroneCard({ drone }) {
-  const statusClass = drone.status
-    .toLowerCase()
-    .replace(" ", "-");
+  const statusClass = drone.status.toLowerCase().replace(" ", "-");
 
   return (
     <article className="drone-card">
@@ -62,11 +61,11 @@ function DroneCard({ drone }) {
 
 function App() {
   const inFlight = drones.filter(
-    (drone) => drone.status === "In Flight"
+    (drone) => drone.status === "In Flight",
   ).length;
 
   const disconnected = drones.filter(
-    (drone) => drone.status === "Disconnected"
+    (drone) => drone.status === "Disconnected",
   ).length;
 
   return (
@@ -113,13 +112,8 @@ function App() {
         <p className="eyebrow">LIVE FLEET VIEW</p>
         <h2>Mission Map</h2>
 
-        <div className="map-placeholder">
-          <div className="map-symbol">◎</div>
-          <h3>3D Globe Coming Soon</h3>
-          <p>
-            Our CesiumJS globe and animated drone markers
-            will be implemented in the upcoming days.
-          </p>
+        <div className="globe-container">
+          <GlobeView />
         </div>
       </section>
 
@@ -139,8 +133,6 @@ function App() {
           ))}
         </div>
       </section>
-
-      
     </main>
   );
 }

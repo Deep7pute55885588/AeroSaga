@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: aerosaga-backend
+
+server:
+  port: ${SERVER_PORT:8080}
+
+aerosaga:
+  temporal:
+    service-address: ${TEMPORAL_SERVICE_ADDRESS:127.0.0.1:7233}
+    namespace: ${TEMPORAL_NAMESPACE:default}
+    task-queue: ${TEMPORAL_TASK_QUEUE:aerosaga-drone-tasks}
+  cors:
+    allowed-origin: ${FRONTEND_ORIGIN:http://localhost:5173}
